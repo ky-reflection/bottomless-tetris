@@ -123,7 +123,7 @@ impl Well {
     }
 
     pub fn solid(&self, x: i32, y: i64) -> bool {
-        if x < 0 || x >= COLS || FLOOR == Some(y) {
+        if !(0..COLS).contains(&x) || FLOOR == Some(y) {
             return true;
         }
         self.rows.get(&y).is_some_and(|m| m & (1 << x) != 0)
