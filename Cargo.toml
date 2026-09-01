@@ -1,0 +1,15 @@
+[package]
+name = "bottomless-tetris"
+version = "0.1.0"
+edition = "2021"
+build = "build.rs"
+
+[dependencies]
+macroquad = "0.4"
+
+[target.'cfg(windows)'.build-dependencies]
+winres = "0.1"
+
+[profile.release]
+lto = true
+codegen-units = 1
